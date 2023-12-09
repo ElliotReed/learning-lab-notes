@@ -1,4 +1,4 @@
-# notes
+# Learning Lab Notes
 
-![pencil taking notes](./learning-lab-notes.jpg)
+![pencil taking notes](./assets/img/learning-lab-notes.jpg)
 for more efficient note taking
