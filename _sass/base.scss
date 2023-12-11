@@ -1,0 +1,23 @@
+@use "variables" as *;
+
+:root {
+  font-size: calc(15px + .390625vw);
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $backgroundColor;
+  color: $bodyColor;
+  font-family: $bodyFont;
+  min-height: 100vh;
+}
+
+code {
+  background-color: #444;
+}
