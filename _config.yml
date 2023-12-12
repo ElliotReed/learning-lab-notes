@@ -13,6 +13,11 @@ title: "Learning Lab Notes" # the name of your site, e.g. ACME Corp.
 url: "https://github.com/ElliotReed" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "/learning-lab-notes" # the subpath of your site, e.g. /blog
 
+collections:
+  notes:
+    output: true
+    permalink: /:categories/:title
+
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options

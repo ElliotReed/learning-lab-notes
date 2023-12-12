@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: note
 title: "Django"
 date: 2023-12-08
-categories: developer
+categories: django
 ---
 
 ## setup

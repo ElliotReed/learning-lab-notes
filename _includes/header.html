@@ -1,3 +1,18 @@
-<header>
-  {{site.title}}
-</header>
+<div class="header-container">
+  <header class="site-header">
+    <img src="{{'/assets/img/learning-lab-notes.jpg' | relative_url}}" alt="">
+    <a href="{{site.baseurl}}{{site.title}}">
+      {{ site.title }}
+    </a>
+  </header>
+
+  {% assign notes = site.notes | sort: "title" %}
+
+  <ul class="note-list">
+    {% for note in notes %}
+      <li>
+        <a href="{{site.baseurl}}{{note.url}}">{{ note.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

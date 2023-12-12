@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: note
 title: "Tanstack React Query"
 date: 2023-12-07
-categories: developer
+categories: react
 ---
 
 ## library

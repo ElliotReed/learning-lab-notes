@@ -1,0 +1,49 @@
+@import "variables";
+@import "mixins";
+
+.header-container {
+  // background-color: grey;
+}
+
+.site-header {
+  position: relative;
+
+  a {
+    position: absolute;
+    inset: 1em;
+    display: block;
+    color: $backgroundColor;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    z-index: 100;
+  }
+
+  img {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+}
+
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  a {
+    display: block;
+    @include padding-box;
+    color: inherit;
+
+    &:hover,
+    :focus {
+      color: $backgroundColor;
+      background: $bodyColor;
+    }
+  }
+}

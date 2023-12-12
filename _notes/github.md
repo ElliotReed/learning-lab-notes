@@ -1,9 +1,8 @@
 ---
-layout: post
+layout: note
 title: "Github"
 date: 2023-12-07
-categories: developer
-permalink: /github/
+categories: github
 ---
 
 ## installation

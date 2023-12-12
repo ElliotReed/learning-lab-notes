@@ -1,0 +1,45 @@
+@import "variables";
+@import "mixins";
+
+.note-container {
+  padding-inline: 1em;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.note {
+  max-width: 65ch;
+  margin-inline: auto;
+
+  a {
+    color: inherit;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid $clr-zebra;
+
+  thead {
+    th {
+
+      background-color: $clr-primary;
+      @include padding-box;
+    }
+  }
+
+  tbody {
+    td {
+      @include padding-box;
+    }
+
+    tr:nth-child(even) {
+      background-color: $clr-zebra;
+    }
+  }
+}
+
+code {
+  background-color: #444;
+}

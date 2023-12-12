@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: note
 title: "Ruby"
-categories: developer
+categories: ruby
 ---
 
 <https://www.ruby-lang.org/en/>

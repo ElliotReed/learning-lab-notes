@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: note
 title: "Markdown"
 date: 2023-12-09
-categories: developer
+categories: markdown
 ---
 <https://www.markdownguide.org>
 
@@ -34,6 +34,7 @@ These are the elements outlined in John Gruber’s original design document. All
 ## Extended Syntax
 
 These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.
+
 |Element | Markdown Syntax |
 | ---------- | ----------- |
 |Table  | &#124; Syntax &#124; Description &#124; <br> &#124; ----------- &#124;  ----------- &#124; <br> &#124; Header &#124; Title &#124; <br> &#124; Paragraph &#124; Text &#124; |
@@ -46,4 +47,4 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 |Emoji <br> (see also Copying and Pasting Emoji) | That is so funny! &#58; joy &#58;|
 |Highlight | I need to highlight these ==very important words==.
 |Subscript | H~2~O|
-|Superscript  X^2^|
+|Superscript | X^2^|

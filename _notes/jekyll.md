@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: note
 title: "Jekyll"
 date: 2023-12-07
-categories: developer
+categories: jekyll
 ---
 
 ## Resources
@@ -14,7 +14,7 @@ categories: developer
 
 ## Setup
 
-  After installing Ruby (follow this [link ]({%  link _posts/2023-12-09-ruby.md %}) for instructions):
+  After installing Ruby (follow this [link ]({%  link _notes/ruby.md %}) for instructions):
 
   Install jekyll and bundle
 

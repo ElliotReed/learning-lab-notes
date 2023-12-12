@@ -1,0 +1,22 @@
+{
+  "name": "learning-lab-notes",
+  "version": "1.0.0",
+  "description": "notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "labs": "code b:/projects/learning-lab",
+    "github": "code b:/projects/learning-lab/github-lab",
+    "node": "code b:/projects/learning-lab/node-lab",
+    "react": "code b:/projects/learning-lab/react-lab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://elliotreed.github.io/learning-lab-notes/"
+  },
+  "keywords": [
+    "notes"
+  ],
+  "author": "Elliot Reed",
+  "license": "ISC"
+}
