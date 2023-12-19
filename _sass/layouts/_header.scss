@@ -1,8 +1,5 @@
-@import "../variables";
-@import "../mixins";
-
 .header-container {
-  // background-color: grey;
+  width: $sidebar-header-width;
 }
 
 .site-header {

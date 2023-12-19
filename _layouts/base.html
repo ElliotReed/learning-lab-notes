@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: " en-US" }}">
+<html lang="{{ site.lang | default: "en-US" }}">
 
   {% include head.html %}
 
   <body>
-    <div class="site-container">
+    <div class="site-container" data-site-container>
 
       {% include header.html %}
+
+      <button data-opener draggable="true">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+
+      <script>
+        const siteContainer = document.querySelector('[data-site-container]')
+        const button = document.querySelector('[data-opener]');
+
+        function toggleFunction(e) {
+          if (e.target === button) {
+            siteContainer.classList.toggle('opened');
+          } else {
+            siteContainer.classList.remove('opened');
+          }
+        }
+        document.addEventListener('click', toggleFunction);
+
+      </script>
 
       <div class="content">
         {{ content }}

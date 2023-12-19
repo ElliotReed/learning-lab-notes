@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins";
+@import "syntax.scss";
 @import "./layouts/base";
 @import "./layouts/header";
 @import "./layouts/note";

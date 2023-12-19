@@ -1,6 +1,6 @@
 ---
 layout: note
-title: "Tanstack React Query"
+title: "React Query (Tanstack)"
 date: 2023-12-07
 categories: react
 ---
@@ -11,15 +11,9 @@ categories: react
 
 ## installation
 
-- v3
+Versions < 4 don't require the @tanstack prefix
 
-```node
-npm i react-query react-query-devtools
-```
-
-- v4
-
-```node
+```bash
 npm i @tanstack/react-query @tanstack/react-query-devtools
 ```
 
@@ -27,11 +21,11 @@ npm i @tanstack/react-query @tanstack/react-query-devtools
 
 - wrap *provider* at highest use level (probably around \<App/>)
 
-```javascript
+```js
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 ```
 
-```javascript
+```js
 const queryClient = new QueryClient();
 
 <QueryClientProvider client={queryClient}>

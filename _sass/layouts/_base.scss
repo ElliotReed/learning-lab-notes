@@ -1,5 +1,3 @@
-@import "../variables";
-
 :root {
   font-size: calc(15px + .390625vw);
   box-sizing: border-box;
@@ -23,12 +21,56 @@ body {
 }
 
 .site-container {
-  display: grid;
-  grid-template-columns: 15em 1fr;
+  display: flex;
+  width: calc(100% + $sidebar-header-width + $data-opener-width);
   height: 100%;
+  transition: transform .3s ease-in-out;
+  transform: translateX(-$sidebar-header-width);
+  overflow: hidden;
+
+  &.opened {
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: $sidebar-header-width 1fr;
+    transform: translateX(0);
+    width: 100%;
+  }
+
+  [data-opener] {
+    color: $bodyColor;
+    width: $data-opener-width;
+    height: 100%;
+    margin: 0;
+    background: #555;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    i {
+      pointer-events: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 }
 
 .content {
+  width: calc(100% - $sidebar-header-width - $data-opener-width - 1em);
   height: 100%;
   overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+}
+
+figure {
+  margin: 0;
 }
