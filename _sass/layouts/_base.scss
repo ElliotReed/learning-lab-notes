@@ -14,9 +14,9 @@ body {
   flex-direction: column;
   margin: 0;
   height: 100vh;
-  color: $bodyColor;
-  font-family: $bodyFont;
-  background: $backgroundColor;
+  color: $body-color;
+  font-family: $body-font;
+  background: $background-color;
   overflow: hidden;
 }
 
@@ -40,7 +40,7 @@ body {
   }
 
   [data-opener] {
-    color: $bodyColor;
+    color: $body-color;
     width: $data-opener-width;
     height: 100%;
     margin: 0;

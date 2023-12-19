@@ -9,7 +9,7 @@
     position: absolute;
     inset: 1em;
     display: block;
-    color: $backgroundColor;
+    color: $background-color;
     text-align: center;
     text-decoration: none;
     font-size: 1em;
@@ -39,8 +39,8 @@
 
     &:hover,
     :focus {
-      color: $backgroundColor;
-      background: $bodyColor;
+      color: $background-color;
+      background: $body-color;
     }
   }
 }
