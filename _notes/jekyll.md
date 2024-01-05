@@ -5,12 +5,17 @@ date: 2023-12-07
 categories: jekyll
 ---
 
+## Working in Jekyll
+
+* TOC
+{:toc}
+
 ## Resources
 
-- <https://jekyllrb.com/>
-- <https://mademistakes.com/>
-- <https://mademistakes.com/mastering-jekyll/>
-- <https://mademistakes.com/mastering-jekyll/site-url-baseurl/>
+* <https://jekyllrb.com/>
+* <https://mademistakes.com/>
+* <https://mademistakes.com/mastering-jekyll/>
+* <https://mademistakes.com/mastering-jekyll/site-url-baseurl/>
 
 ## Setup
 
@@ -46,7 +51,7 @@ categories: jekyll
 
 ## Config
 
-- _config.yml
+* _config.yml
 
   example
 
@@ -69,18 +74,18 @@ plugins:
 - jekyll-feed
 ```
 
-- Use index.md for entry
+* Use index.md for entry
 
-  - add homepage content
+  * add homepage content
 
-- Add README.md
+* Add README.md
 
-  - for github
+  * for github
 
 ## Blog files
 
-- create blog with files named "_posts/YYYY-MM-DD-title.md"
-- include title and date (other keys such as layout and categories also)
+* create blog with files named "_posts/YYYY-MM-DD-title.md"
+* include title and date (other keys such as layout and categories also)
 
 ```yml
 ---
@@ -103,7 +108,9 @@ To have your CSS overrides in sync with upstream changes released in future vers
 
 ## Sytax Highlights
 
-Jekyll comes with highlighter "Rouge" built in.
+Jekyll comes with highlighter [Rouge](https://github.com/rouge-ruby/rouge) built in.
+
+List of [language definitions](https://github.com/rouge-ruby/rouge/blob/master/docs/Languages.md)
 
 You need a stylesheet for this to work, find themes at <https://jwarby.github.io/jekyll-pygments-themes/languages/ruby.html>
 
@@ -114,3 +121,12 @@ Use by wrapping your code blocks with \{`% highlight lang %`\} and \{`% endhighl
 Add \{`% raw %`\} and \{`% endraw %`\} if language uses curly braces.
 
 Fencing syntax works also?
+
+## Table of Contents
+
+Using a list item seperator (*, -) before "TOC"
+
+```kramdown
+- TOC
+{:toc}
+```

@@ -6,6 +6,11 @@ categories: markdown
 ---
 <https://www.markdownguide.org>
 
+## Table of Contents
+
+- TOC
+{:toc}
+
 Markdown Cheat Sheet
 
 A quick reference to the Markdown syntax.
@@ -21,8 +26,8 @@ These are the elements outlined in John Gruber’s original design document. All
 | Element | Markdown Syntax |
 | ----------- | ----------- |
 | Heading |# H1 <br> ## H2 <br> ### H3|
-|Bold | **bold text**|
-|Italic | *italicized text*|
+|Bold | `**`**bold text**`**`|
+|Italic | `*`*italicized text*`*`|
 |Blockquote | > blockquote|
 |Ordered List | 1. First item <br> 2. Second item <br> 3. Third item|
 |Unordered List | - First item <br> - Second item <br> - Third item|
@@ -48,3 +53,13 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 |Highlight | I need to highlight these ==very important words==.
 |Subscript | H~2~O|
 |Superscript | X^2^|
+
+## Links
+
+In document links work for headers.
+
+Use a single "#" to link:
+
+```console
+[Basic Syntax](#basic-syntax)
+```

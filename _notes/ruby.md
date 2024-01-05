@@ -8,6 +8,11 @@ categories: ruby
 
 ![ruby](https://www.ruby-lang.org/images/header-ruby-logo.png)<br>**Ruby**
 
+## Table of Contents
+
+- TOC
+{:toc}
+
 ## Setup
 
 - Windows installation
