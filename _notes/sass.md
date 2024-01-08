@@ -15,3 +15,17 @@ categories: css
 ## Documentaion
 
 [Go to the Sass website](https://sass-lang.com/).
+
+## Interpolation
+
+### Syntax
+
+```sass
+#{$variable}
+```
+
+Use for `calc()`:
+
+```sass
+width: calc(100% + #{variable});
+```
