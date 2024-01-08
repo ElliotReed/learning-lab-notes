@@ -22,7 +22,7 @@ body {
 
 .site-container {
   display: flex;
-  width: calc(100% + #{$sidebar-and-data-opener-width});
+  width: calc(100% + #{$sidebar-header-width} + #{$data-opener-width});
   height: 100%;
   transition: transform .3s ease-in-out;
   transform: translateX(-$sidebar-header-width);
@@ -62,7 +62,7 @@ body {
 }
 
 .content {
-  width: calc(100% - $sidebar-header-width - $data-opener-width - 1em);
+  width: calc(100% - #{$sidebar-header-width} - #{$data-opener-width} - 1em);
   height: 100%;
   overflow: hidden;
 
