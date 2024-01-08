@@ -11,7 +11,7 @@ categories: nodejs
 
 ## Installed Versions
 
-Used [nvm-windows](https://github.com/coreybutler/nvm-windows) to handle multiple versions of node (needed for [Redwood.js]({%  link _notes/redwood.md %))
+Used [nvm-windows](https://github.com/coreybutler/nvm-windows) to handle multiple versions of node (needed for [Redwood.js]({%  link _notes/redwood.md %}))
 
 nvm use [version]
 
