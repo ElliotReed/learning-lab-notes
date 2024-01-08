@@ -8,11 +8,13 @@
 
   {% assign notes = site.notes | sort: "title" %}
 
-  <ul class="note-list">
-    {% for note in notes %}
-      <li>
-        <a href="{{site.baseurl}}{{note.url}}">{{ note.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="note-list__container">
+    <ul class="note-list">
+      {% for note in notes %}
+        <li>
+          <a href="{{site.baseurl}}{{note.url}}">{{ note.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>

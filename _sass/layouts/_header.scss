@@ -1,5 +1,8 @@
 .header-container {
+  display: flex;
+  flex-direction: column;
   width: $sidebar-header-width;
+  overflow: hidden;
 }
 
 .site-header {
@@ -24,13 +27,15 @@
   }
 }
 
+.note-list__container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .note-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
 
   a {
     display: block;
