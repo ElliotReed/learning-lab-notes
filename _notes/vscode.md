@@ -2,7 +2,7 @@
 layout: note
 title: "VS Code"
 date: 2024-1-7
-categories: editors, vscode
+categories: editors
 ---
 
 ## Table of Contents

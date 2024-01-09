@@ -1,7 +1,7 @@
 ---
 layout: note
 title: "Nodejs"
-categories: nodejs
+categories: node
 ---
 
 ## Table of Contents

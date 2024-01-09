@@ -2,7 +2,8 @@
 layout: note
 title: "Redwood"
 date: 2024-1-2
-categories: react, storybook, prisma
+categories: react
+tags: ["react", "storybook", "prisma"]
 ---
 
 [ReddwoodJS](https://redwoodjs.com/) is a  React framework that combines
@@ -38,6 +39,24 @@ nvm use [version]
 <MetaData /> // current
 ```
 
+## Global
+
+### Cells
+
+```shell
+yarn rw g cell [name]
+```
+
+### Commands
+
+```shell
+yarn rw dev
+```
+
+```shell
+yarn rw upgrade
+```
+
 ## Recipies
 
 - Blog
@@ -50,16 +69,24 @@ nvm use [version]
   6. Create a cell to load the data and take care of loading/empty/failure/success states
   7. Add the cell to the page
 
-## Global
+### GraphQL
 
-### Commands
+GraphQL implementation is built with [Apollo Client](https://www.apollographql.com/docs/react/) (on the client) and [GraphQL Yoga](https://www.graphql-yoga.com/) & [Envelop](https://www.envelop.dev/docs) (on the server)
+
+## Storybook
 
 ```shell
-yarn rw dev
+yarn rw storybook
 ```
 
+## Typescript
+
+### Types
+
+When you have the dev server (via yarn rw dev) running, the CLI watches files for changes and triggers type generation automatically, but you can trigger it manually too by running:
+
 ```shell
-yarn rw upgrade
+yarn rw g types
 ```
 
 ## Web
@@ -68,6 +95,63 @@ yarn rw upgrade
 
 - web/public assets available from build
 
+### Components
+
+Generate a component
+
+```shell
+yarn rw g component [name]
+```
+
+#### Redwood Components
+
+Redwood comes with some built in components:
+
+```jsx
+<TextField />
+<PasswordField />
+// etc
+```
+
+##### Forms
+
+Contact form example:
+
+```tsx
+<Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
+  <Label name="name" errorClassName="error" />
+  <TextField
+    name="name"
+    validation={{ required: true }}
+    errorClassName="error"/>
+  <FieldError name="name" className="error" />
+
+  <Label name="email" errorClassName="error" />
+  <TextField
+    name="email"
+    validation={{
+      required: true,
+      pattern: {
+        value: /^[^@]+@[^.]+\..+$/,
+        message: 'Please enter a valid email address',
+      },
+    }}
+    errorClassName="error"
+  />
+  <FieldError name="email" className="error" />
+
+  <Label name="message" errorClassName="error" />
+  <TextAreaField
+    name="message"
+    validation={{ required: true }}
+    errorClassName="error"
+  />
+  <FieldError name="message" className="error" />
+
+  <Submit>Save</Submit>
+</Form>
+```
+
 ### Router
 
 The router will attempt to match the current URL to each route in turn, and only render those with a matching path. The only exception to this is the notfound route, which can be placed anywhere in the list and only matches when no other routes do.
@@ -75,7 +159,7 @@ The notfound route can't be nested in a Set
 
 Routes.ts
 
-```js
+```jsx
 import { Router, Route } from '@redwoodjs/router'
 
 const Routes = () => (
@@ -97,7 +181,7 @@ export default Routes
 
 Private Routes
 
-```ts
+```tsx
 <Router>
   <PrivateSet unauthenticated="forbidden" roles={['admin', 'editor', 'publisher']}>
     <Route path="/admin/posts/{id:Int}/edit" page={EditPostPage} name="editPost" />
@@ -107,22 +191,10 @@ Private Routes
 </Router>
 ```
 
-### Components
-
-Generate a component
+### UI
 
 ```shell
-yarn rw g component [name]
-```
-
-#### Redwood Components
-
-Redwood comes with some built in components:
-
-```jsx
-<TextField />
-<PasswordField />
-// etc
+yarn setup ui 
 ```
 
 ## API
@@ -145,30 +217,4 @@ Generate CRUD
 
 ```shell
 yarn rw g scaffold [table]
-```
-
-## Cells
-
-```shell
-yarn rw g cell [name]
-```
-
-## Typescript
-
-### Types
-
-When you have the dev server (via yarn rw dev) running, the CLI watches files for changes and triggers type generation automatically, but you can trigger it manually too by running:
-
-```shell
-yarn rw g types
-```
-
-## GraphQL
-
-GraphQL implementation is built with [Apollo Client](https://www.apollographql.com/docs/react/) (on the client) and [GraphQL Yoga](https://www.graphql-yoga.com/) & [Envelop](https://www.envelop.dev/docs) (on the server)
-
-## Storybook
-
-```shell
-yarn rw storybook
 ```
