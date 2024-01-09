@@ -31,6 +31,13 @@ nvm use [version]
 - 18.19.0
 - 20.10.0
 
+### Meta
+
+```js
+<MetaTags />// from tutorial
+<MetaData /> // current
+```
+
 ## Structure
 
 - web/public assets available from build
