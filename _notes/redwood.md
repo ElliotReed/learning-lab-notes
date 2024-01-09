@@ -34,8 +34,8 @@ nvm use [version]
 
 ### Meta
 
-```js
-<MetaTags />// from tutorial
+```jsx
+<MetaTags /> // from tutorial (deprecated)
 <MetaData /> // current
 ```
 
@@ -69,26 +69,6 @@ yarn rw upgrade
   6. Create a cell to load the data and take care of loading/empty/failure/success states
   7. Add the cell to the page
 
-### GraphQL
-
-GraphQL implementation is built with [Apollo Client](https://www.apollographql.com/docs/react/) (on the client) and [GraphQL Yoga](https://www.graphql-yoga.com/) & [Envelop](https://www.envelop.dev/docs) (on the server)
-
-## Storybook
-
-```shell
-yarn rw storybook
-```
-
-## Typescript
-
-### Types
-
-When you have the dev server (via yarn rw dev) running, the CLI watches files for changes and triggers type generation automatically, but you can trigger it manually too by running:
-
-```shell
-yarn rw g types
-```
-
 ## Web
 
 ### Public
@@ -117,7 +97,9 @@ Redwood comes with some built in components:
 
 Contact form example:
 
-```tsx
+{% raw %}
+
+```js
 <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
   <Label name="name" errorClassName="error" />
   <TextField
@@ -151,6 +133,8 @@ Contact form example:
   <Submit>Save</Submit>
 </Form>
 ```
+
+{% endraw %}
 
 ### Router
 
@@ -217,4 +201,24 @@ Generate CRUD
 
 ```shell
 yarn rw g scaffold [table]
+```
+
+## GraphQL
+
+GraphQL implementation is built with [Apollo Client](https://www.apollographql.com/docs/react/) (on the client) and [GraphQL Yoga](https://www.graphql-yoga.com/) & [Envelop](https://www.envelop.dev/docs) (on the server)
+
+## Storybook
+
+```shell
+yarn rw storybook
+```
+
+## Typescript
+
+### Types
+
+When you have the dev server (via yarn rw dev) running, the CLI watches files for changes and triggers type generation automatically, but you can trigger it manually too by running:
+
+```shell
+yarn rw g types
 ```
