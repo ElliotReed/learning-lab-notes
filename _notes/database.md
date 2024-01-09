@@ -14,6 +14,10 @@ categories: database
 
 [Dev.to article](https://dev.to/harshhhdev/uuidguid-cuid-nanoid-whats-the-difference-5dj1)
 
+### Sequence
+
+Short and sweet, integer.
+
 ### UUID
 
 Universally unique identifier, is a 128 bit label. The probability that an ID will be replicated *ANYWHERE* else is near zero.
