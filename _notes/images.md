@@ -5,8 +5,6 @@ date: 2024-1-2
 categories: images
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 

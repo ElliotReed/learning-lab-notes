@@ -4,14 +4,12 @@ title: "Kramdown"
 categories: jekyll
 ---
 
+- TOC
+{:toc}
+
 <https://kramdown.gettalong.org>
 
 <https://kramdown.gettalong.org/quickref.html>
-
-## Kramdown Contents
-
-- TOC
-{:toc}
 
 ## Table of Contents
 

@@ -5,8 +5,6 @@ date: 2024-1-7
 categories: editors
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 

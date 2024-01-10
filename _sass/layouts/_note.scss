@@ -5,6 +5,42 @@
   overflow-y: auto;
 }
 
+.note-content-container {
+  // display: grid;
+  // grid-template-columns: 33% 1fr;
+
+  &>* {
+    grid-column: 2;
+  }
+
+  #markdown-toc {
+    grid-column: 1;
+    list-style: none;
+    padding-inline: .6em;
+
+    &::before {
+      content: "Contents";
+      padding-block: .2em;
+      padding-inline: .6em;
+      margin-left: -.6em;
+      font-size: 1.2em;
+      font-weight: bold;
+      background: #333;
+    }
+
+    &>li:first-child {
+      margin-top: .6em;
+
+    }
+
+    ul {
+      padding: .5em;
+      list-style: circle;
+    }
+  }
+}
+
+
 .note {
   max-width: 80ch;
   margin-inline: auto;

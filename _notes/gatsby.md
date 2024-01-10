@@ -4,8 +4,6 @@ title: "Gatsby"
 categories: react, gatsby
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 

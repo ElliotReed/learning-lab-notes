@@ -4,14 +4,12 @@ title: "Ruby"
 categories: ruby
 ---
 
+- TOC
+{:toc}
+
 <https://www.ruby-lang.org/en/>
 
 ![ruby](https://www.ruby-lang.org/images/header-ruby-logo.png)<br>**Ruby**
-
-## Table of Contents
-
-- TOC
-{:toc}
 
 ## Setup
 

@@ -4,8 +4,6 @@ title: "NPM"
 categories: npm
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 

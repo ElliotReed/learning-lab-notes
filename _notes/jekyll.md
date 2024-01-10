@@ -5,8 +5,6 @@ date: 2023-12-07
 categories: jekyll
 ---
 
-## Working in Jekyll
-
 * TOC
 {:toc}
 
@@ -130,3 +128,14 @@ Using a list item seperator (*, -) before "TOC"
 - TOC
 {:toc}
 ```
+
+When using jekyll's liquid syntax, the syntax symbols need to be escaped with "raw"
+
+{% raw %}
+
+```jeykll
+{% prints literally %}
+{{ prints literally }}
+```
+
+{% endraw %}

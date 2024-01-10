@@ -5,12 +5,10 @@ date: 2024-1-2
 categories: express
 ---
 
-[Passport](https://www.passportjs.org/)
-
-## Table of Contents
-
 - TOC
 {:toc}
+
+[Passport](https://www.passportjs.org/)
 
 ## Strategies
 

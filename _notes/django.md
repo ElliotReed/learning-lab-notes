@@ -5,8 +5,6 @@ date: 2023-12-08
 categories: django
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 

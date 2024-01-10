@@ -5,8 +5,6 @@ date: 2024-1-2
 categories: react
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 
@@ -50,6 +48,7 @@ export const Error: Story = {
 }
 ```
 
+```tsx
 import type { Meta, StoryObj } from '@storybook/react'
 
 import Indicator from './Indicator'
@@ -79,3 +78,4 @@ export const Error: Story = {
     status: 'error',
   }
 }
+```

@@ -5,8 +5,6 @@ date: 2024-1-8
 categories: database
 ---
 
-## Table of Contents
-
 - TOC
 {:toc}
 

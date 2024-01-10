@@ -4,12 +4,11 @@ title: "Markdown"
 date: 2023-12-09
 categories: markdown
 ---
-<https://www.markdownguide.org>
-
-## Table of Contents
 
 - TOC
 {:toc}
+
+<https://www.markdownguide.org>
 
 Markdown Cheat Sheet
 

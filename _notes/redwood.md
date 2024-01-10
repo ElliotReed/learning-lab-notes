@@ -6,6 +6,9 @@ categories: react
 tags: ["react", "storybook", "prisma"]
 ---
 
+- toc
+{:toc}
+
 [ReddwoodJS](https://redwoodjs.com/) is a  React framework that combines
 
 - GraphQL
@@ -16,12 +19,7 @@ tags: ["react", "storybook", "prisma"]
 - vite
 - Babel
 
-## Table of Contents
-
-- TOC
-{:toc}
-
-## Nightmare install
+## Install (pain)
 
 Redwood has locked versions for full stack and deploy capabilities.
 
