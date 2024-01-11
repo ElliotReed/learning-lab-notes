@@ -37,3 +37,16 @@ tiny (only 130 bytes minified and gzipped), fast (x2 faster than UUID), safe, sh
 With an ID length of 15 characters (pretty short and sweet), and a generation of 1,000 IDs every hour, it'll take a mind boggling 569 thousand years for it to have a 1% probability of a single collision. Now if we switch that to 1000 IDs being generated every single second, it'd still take around 158 for it to have a 1% probability of at least a single collision.
 
  > For most cases, I believe the best option is NanoID due to the fact that it's insanely customisable whilst being performant. It's slowly but surely taking over uuidv4, if we look at this npm trends comparison between the three. In the context of Prisma, the built-in CUID is perhaps the best choice.
+
+## Hosting Providers
+
+- [Supabase](https://supabase.com)
+  - $0, Limit of 2 free organizations, pause after 1 week.
+
+### Postgres instance
+
+- [Railway](https://railway.app/)
+  - $5,
+- [Heroku](https://www.heroku.com/postgres)
+- [Digital Ocean](https://www.digitalocean.com/products/managed-databases)
+- [AWS](https://aws.amazon.com/rds/postgresql/)

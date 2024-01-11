@@ -39,6 +39,66 @@ nvm use [version]
 
 ## Global
 
+### Authentication
+
+ Docs: [self-hosted](https://redwoodjs.com/docs/auth/dbauth) and [third-party authentication](https://redwoodjs.com/docs/authentication#official-integrations).
+
+Redwood includes integrations for several of the most popular third-party auth providers:
+
+- Auth0
+- Clerk
+- Netlify Identity
+- Firebase's GoogleAuthProvider
+- [Supabase](https://supabase.io/docs/guides/auth)
+- SuperTokens
+
+Redwood supplies dbAuth:
+
+```shell
+yarn rw setup auth dbAuth
+```
+
+schema.prisma
+
+```js
+model User {
+  id                  Int       @id @default(autoincrement())
+  name                String?
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+}
+```
+
+```shell
+yarn rw prisma migrate dev
+```
+
+#### Login & Signup Pages
+
+```shell
+yarn rw g dbAuth
+```
+
+Pages will be created <http://localhost:8910/login>:
+
+#### Session Secret
+
+.env
+
+The setup script appended a new ENV var called SESSION_SECRET. This is the encryption key for the cookies that are stored in the user's browser when they log in. This secret should never be shared, never checked into your repo, and should be re-generated for each environment you deploy to.
+
+You can generate a new value with the yarn `rw g secret` command. It only outputs it to the terminal, you'll need to copy/paste to your .env file. Note that if you change this secret in a production environment, all users will be logged out.
+
+### Urls
+
+- Redwood <http://localhost:8910/>
+- Prisma Studio <http://localhost:5555/>
+- GrapiQL <http://localhost:8911/graphql>
+- Storybook
+
 ### Cells
 
 ```shell
@@ -173,6 +233,14 @@ Private Routes
 </Router>
 ```
 
+### Toast
+
+- toast messages [react-hot-toast](https://react-hot-toast.com/)
+
+```js
+import { toast, Toaster } from '@redwoodjs/web/toast'
+```
+
 ### UI
 
 ```shell
@@ -201,15 +269,125 @@ Generate CRUD
 yarn rw g scaffold [table]
 ```
 
+### Create an SDL & Service
+
+Create the GraphQL interface to access a new table. The scaffold command uses this:
+
+```shell
+yarn rw g sdl [table]
+```
+
+This will create a few new files under the api directory:
+
+- `api/src/graphql/[table].sdl.ts`: defines the GraphQL schema in GraphQL's schema definition language
+
+- `api/src/services/[table]/[table].ts`: contains your app's business logic (also creates associated test files)
+
+Queries and mutations in an SDL file are automatically mapped to resolvers defined in a service, so when you generate an SDL file you'll get a service file as well, since one requires the other.
+
+If you just need a simple read-only SDL, you can skip creating the create/update/delete mutations by passing a flag to the SDL generator like so:
+
+```shell
+yarn rw g sdl Contact --no-crud
+```
+
+You'd only get a single type to return them all.
+
+## Deployment
+
+- Netlify
+
+```shell
+yarn rw setup deploy netlify
+```
+
+This adds a netlify.toml config file in the root of the project
+
 ## GraphQL
 
 GraphQL implementation is built with [Apollo Client](https://www.apollographql.com/docs/react/) (on the client) and [GraphQL Yoga](https://www.graphql-yoga.com/) & [Envelop](https://www.envelop.dev/docs) (on the server)
+
+### GraphQL Playground
+
+<http://localhost:8911/graphql>
+
+This is GraphQL Yoga's [GraphiQL](https://www.graphql-yoga.com/docs/features/graphiql), a web-based GUI for GraphQL APIs:
+
+### useMutation()
+
+```js
+const [create, { loading, error }] = useMutation<
+  CreateContactMutation,
+  CreateContactMutationVariables
+>(CREATE_CONTACT)
+```
+
+create is a function that invokes the mutation and takes an object with a variables key, containing another object with an input key.
+
+```js
+create({
+  variables: {
+    input: {
+      name: 'Rob',
+      email: '<rob@redwoodjs.com>',
+      message: 'I love Redwood!',
+    },
+  },
+})
+```
+
+useMutation accepts an options object as a second argument. One of the options is a callback function, onCompleted, that will be invoked when the mutation successfully completes. We'll use that callback to invoke a toast() function which will add a message to be displayed in a `<Toaster>` component.
+
+### Services
+
+#### Validation
+
+We talked about business logic belonging in our services files and this is a perfect example. And since validating inputs is such a common requirement, Redwood once again makes our lives easier with [Service Validations](https://redwoodjs.com/docs/services#service-validations).
+
+```js
+  validate(input.email, 'email', { email: true })
+```
+
+- The first argument is the value that we want to check. In this case input contains all our contact data and the value of email is the one we want to check
+
+- The second argument is the name prop from the `<TextField>`, so that we know which input field on the page has an error
+
+- The third argument is an object containing the validation directives we want to invoke. In this case it's just one, and `email: true` means we want to use the built-in email validator
+
+```js
+export const createCar = ({ input }: Car) => {
+  validate(input.make, 'make', {
+    inclusion: ['Audi', 'BMW', 'Ferrari', 'Lexus', 'Tesla'],
+  })
+  validate(input.color, 'color', {
+    exclusion: { in: ['Beige', 'Mauve'], message: "No one wants that color" }
+  })
+  validate(input.hasDamage, 'hasDamage', {
+    absence: true
+  })
+  validate(input.vin, 'vin', {
+    format: /[A-Z0-9]+/,
+    length: { equal: 17 }
+  })
+  validate(input.odometer, 'odometer', {
+    numericality: { positive: true, lessThanOrEqual: 10000 }
+  })
+
+  return db.car.create({ data: input })
+}
+```
 
 ## Storybook
 
 ```shell
 yarn rw storybook
 ```
+
+## Testing
+
+What's the difference between getByText() and queryByText()?
+
+getByText() will throw an error if the text isn't found in the document, whereas queryByText() will return null and let you continue with your testing (and is one way to test that some text is not present on the page). You can read more about these in the DOM Testing Library Queries docs.
 
 ## Typescript
 
