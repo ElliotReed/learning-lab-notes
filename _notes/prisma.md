@@ -82,3 +82,15 @@ This gives us a classic database model:
 └───────────┘       │ createdAt │
                     └───────────┘
 ```
+
+When you query for a Comment using Prisma you can get access to the attached Post using that name:
+
+```js
+db.comment.findUnique({ where: { id: 1 }}).post()
+```
+
+Prisma also added a convenience comments field to Post which gives us the same capability in reverse:
+
+```js
+db.post.findUnique({ where: { id: 1 }}).comments()
+```
