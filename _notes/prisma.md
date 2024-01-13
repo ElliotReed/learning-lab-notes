@@ -10,7 +10,7 @@ categories: orm
 
 GraphQL's SDL syntax requires an extra `!` when a field is required. Remember: schema.prisma syntax requires an extra `?` character when a field is not required.
 
-# schema.prisma
+## schema.prisma
 
 Example:
 
