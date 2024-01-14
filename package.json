@@ -4,10 +4,14 @@
   "description": "notes",
   "main": "index.js",
   "scripts": {
+    "dev": "jekyll serve",
+    "learning-lab-notes": "node .learning-lab-notes",
+    "lln": "node .learning-lab-notes",
     "test": "echo \"Error: no test specified\" && exit 1",
     "labs": "code b:/projects/learning-lab",
     "github": "code b:/projects/learning-lab/github-lab",
     "node": "code b:/projects/learning-lab/node-lab",
+    "vscode": "code b:/projects/learning-lab/vscode-lab",
     "react": "code b:/projects/learning-lab/react-lab"
   },
   "repository": {

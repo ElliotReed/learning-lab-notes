@@ -94,3 +94,45 @@ Prisma also added a convenience comments field to Post which gives us the same c
 ```js
 db.post.findUnique({ where: { id: 1 }}).comments()
 ```
+
+## Prisma and the N+1 Problem
+
+If you have any experience with database design and retrieval you may have noticed this method presents a less than ideal solution: for every post that's found, you need to perform an additional query just to get the user data associated with that post, also known as the N+1 problem. This is just due to the nature of GraphQL queries: each resolver function really only knows about its own parent object, nothing about potential children.
+
+There have been several attempts to work around this issue. A simple one that includes no extra dependencies is to remove this field resolver and simply include user data along with any post you retrieve from the database:
+
+```js
+export const post = ({ id }) => {
+  return db.post.findUnique({
+    where: { id },
+    include: {
+      user: true
+    }
+  })
+}
+```
+
+This may or may not work for you: you are incurring the overhead of always returning user data, even if that data wasn't requested in the GraphQL query. In addition, this breaks further nesting of queries: what if you wanted to return the user for this post, and a list of all the other posts IDs that they created?
+
+```graphql
+post {
+  id
+  title
+  body
+  createdAt
+  user {
+    name
+    posts {
+      id
+    }
+  }
+}
+```
+
+This query would now fail because you only have post.user available, not post.user.posts.
+
+## findUnique() vs. findFirst()
+
+- **findUnique()** requires that any attributes in the where clause have unique indexes, which id does, but userId does not.
+
+- **findFirst()** allows you to put whatever you want in the where, which may return more than one record, but Prisma will only return the first of that set. In this case we know there'll always only be one, because we're selecting by id in addition to userId.

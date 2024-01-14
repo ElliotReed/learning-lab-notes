@@ -307,6 +307,8 @@ This adds a netlify.toml config file in the root of the project
 
 GraphQL implementation is built with [Apollo Client](https://www.apollographql.com/docs/react/) (on the client) and [GraphQL Yoga](https://www.graphql-yoga.com/) & [Envelop](https://www.envelop.dev/docs) (on the server)
 
+The name of the **SDL** needs to match the name of the **service**
+
 ### GraphQL Playground
 
 <http://localhost:8911/graphql>
@@ -339,6 +341,25 @@ create({
 useMutation accepts an options object as a second argument. One of the options is a callback function, onCompleted, that will be invoked when the mutation successfully completes. We'll use that callback to invoke a toast() function which will add a message to be displayed in a `<Toaster>` component.
 
 ### Services
+
+The name of the **SDL** needs to match the name of the **service**
+
+#### Context
+
+There's a magical variable named **context** that's available within any of your service functions. It contains the context in which the service function is being called. One property available on this context is the user that's logged in (if someone is logged in).
+
+It's the same currentUser that is available on the web side:
+*api/src/service/posts/posts.js*
+
+```js
+export const createPost = ({ input }) => {
+  return db.post.create({
+    data: { ...input, userId: context.currentUser.id }
+  })
+}
+```
+
+So `context.currentUser` will always be around if you need access to the user that made this request.
 
 #### Validation
 

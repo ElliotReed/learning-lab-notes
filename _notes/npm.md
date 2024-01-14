@@ -17,6 +17,12 @@ Scripts in a package.json file can be run with:
 npm run [script name]
 ```
 
+You can pass arguments to the script by using `--`
+
+```shell
+npm run [script] -- [args]
+```
+
 ## Errors
 
 > Fix the upstream dependency conflict, or retry npm ERR! this command with --force or --legacy-peer-deps
