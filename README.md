@@ -4,3 +4,13 @@
 for more efficient note taking
 
 This site is built with Jekyll to organize my notes.
+
+## Learning Lab Notes CLI
+
+Located at .learning-lab-notes
+
+Invoke with the script.
+
+```shell
+npm run lln -- -n // or --note
+```
