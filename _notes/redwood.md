@@ -9,6 +9,8 @@ tags: ["react", "storybook", "prisma"]
 - toc
 {:toc}
 
+## About
+
 [ReddwoodJS](https://redwoodjs.com/) is a  React framework that combines
 
 - GraphQL
@@ -19,7 +21,14 @@ tags: ["react", "storybook", "prisma"]
 - vite
 - Babel
 
-## Install (pain)
+### Browser Urls
+
+- Redwood <http://localhost:8910/>
+- Prisma Studio <http://localhost:5555/>
+- GrapiQL <http://localhost:8911/graphql>
+- Storybook
+
+## Install NVM
 
 Redwood has locked versions for full stack and deploy capabilities.
 
@@ -30,14 +39,54 @@ nvm use [version]
 - 18.19.0
 - 20.10.0
 
-### Meta
+## Create a Redwoodjs App
 
-```jsx
-<MetaTags /> // from tutorial (deprecated)
-<MetaData /> // current
+Switch node version to 18 using nvm
+
+```shell
+nvm use 18.19.0
 ```
 
-## Global
+The Redwood cli will create the directory, so start the command in the containing directory.
+
+If you leave off the name it will be asked by the cli.
+
+```shell
+yarn create redwood-app
+```
+
+Say no to the cli when it asks to yarn install, that will try to use the incorect version.
+
+cd into the app directory and run:
+
+```shell
+yarn install
+```
+
+To start the app, run:
+
+```shell
+yarn rw dev
+```
+
+To upgrade:
+
+```shell
+yarn rw upgrade
+```
+
+### UI Setup
+
+[Redwood can start a ui setup](#ui)
+
+## Structure
+
+Redwood uses two source folders:
+
+- **api** for the backend
+- **web** for the frontend
+
+## Full Stack (API and Web)
 
 ### Authentication
 
@@ -52,7 +101,7 @@ Redwood includes integrations for several of the most popular third-party auth p
 - [Supabase](https://supabase.io/docs/guides/auth)
 - SuperTokens
 
-Redwood supplies dbAuth:
+Redwood supplies **dbAuth**:
 
 ```shell
 yarn rw setup auth dbAuth
@@ -92,12 +141,53 @@ The setup script appended a new ENV var called SESSION_SECRET. This is the encry
 
 You can generate a new value with the yarn `rw g secret` command. It only outputs it to the terminal, you'll need to copy/paste to your .env file. Note that if you change this secret in a production environment, all users will be logged out.
 
-### Urls
+## API
 
-- Redwood <http://localhost:8910/>
-- Prisma Studio <http://localhost:5555/>
-- GrapiQL <http://localhost:8911/graphql>
-- Storybook
+### Prisma
+
+Use schema.prisma to define models.
+
+```shell
+yarn rw prisma migrate [database]
+```
+
+View with
+
+```shell
+yarn rw prisma studio
+```
+
+Generate CRUD
+
+```shell
+yarn rw g scaffold [table]
+```
+
+### Create an SDL & Service
+
+Create the GraphQL interface to access a new table. The scaffold command uses this:
+
+```shell
+yarn rw g sdl [table]
+```
+
+This will create a few new files under the api directory:
+
+- `api/src/graphql/[table].sdl.ts`: defines the GraphQL schema in GraphQL's schema definition language
+
+- `api/src/services/[table]/[table].ts`: contains your app's business logic (also creates associated test files)
+
+Queries and mutations in an SDL file are automatically mapped to resolvers defined in a service, so when you generate an SDL file you'll get a service file as well, since one requires the other.
+
+If you just need a simple read-only SDL, you can skip creating the create/update/delete mutations by passing a flag to the SDL generator like so:
+
+```shell
+yarn rw g sdl Contact --no-crud
+```
+
+You'd only get a single type to return them all.
+
+## Web
 
 ### Cells
 
@@ -105,29 +195,12 @@ You can generate a new value with the yarn `rw g secret` command. It only output
 yarn rw g cell [name]
 ```
 
-### Commands
+### Meta
 
-```shell
-yarn rw dev
+```jsx
+<MetaTags /> // from tutorial (deprecated)
+<MetaData /> // current
 ```
-
-```shell
-yarn rw upgrade
-```
-
-## Recipies
-
-- Blog
-
-  1. Generate the homepage
-  2. Generate the blog layout
-  3. Define the database schema
-  4. Run migrations to update the database and create a table
-  5. Scaffold a CRUD interface to the database table
-  6. Create a cell to load the data and take care of loading/empty/failure/success states
-  7. Add the cell to the page
-
-## Web
 
 ### Public
 
@@ -194,6 +267,14 @@ Contact form example:
 
 {% endraw %}
 
+### Pages
+
+Pages are stored in the pages direcory, genetate a new page (and route) with:
+
+```shell
+yarn rw g page [page name]
+```
+
 ### Router
 
 The router will attempt to match the current URL to each route in turn, and only render those with a matching path. The only exception to this is the notfound route, which can be placed anywhere in the list and only matches when no other routes do.
@@ -243,55 +324,28 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 
 ### UI
 
-```shell
-yarn setup ui 
-```
-
-## API
-
-### Prisma
-
-Use schema.prisma to define models.
+Redwood is already configured to use Sass, if the packages are there:
 
 ```shell
-yarn rw prisma migrate [database]
+yarn workspace web add -D sass sass-loader
 ```
 
-View with
+Set up a UI design or style library
 
 ```shell
-yarn rw prisma studio
+yarn rw setup ui <library>
 ```
 
-Generate CRUD
+Commands:
 
 ```shell
-yarn rw g scaffold [table]
+  rw setup ui chakra-ui    //Set up Chakra UI
+  rw setup ui mantine      //Set up Mantine UI
+  rw setup ui tailwindcss  //Set up tailwindcss and PostCSS[aliases: tailwind, tw]
 ```
 
-### Create an SDL & Service
-
-Create the GraphQL interface to access a new table. The scaffold command uses this:
-
-```shell
-yarn rw g sdl [table]
-```
-
-This will create a few new files under the api directory:
-
-- `api/src/graphql/[table].sdl.ts`: defines the GraphQL schema in GraphQL's schema definition language
-
-- `api/src/services/[table]/[table].ts`: contains your app's business logic (also creates associated test files)
-
-Queries and mutations in an SDL file are automatically mapped to resolvers defined in a service, so when you generate an SDL file you'll get a service file as well, since one requires the other.
-
-If you just need a simple read-only SDL, you can skip creating the create/update/delete mutations by passing a flag to the SDL generator like so:
-
-```shell
-yarn rw g sdl Contact --no-crud
-```
-
-You'd only get a single type to return them all.
+Also see the Redwood CLI Reference
+(​<https://redwoodjs.com/docs/cli-commands#setup-ui​>)
 
 ## Deployment
 
@@ -419,3 +473,15 @@ When you have the dev server (via yarn rw dev) running, the CLI watches files fo
 ```shell
 yarn rw g types
 ```
+
+## Recipies
+
+- Blog
+
+  1. Generate the homepage
+  2. Generate the blog layout
+  3. Define the database schema
+  4. Run migrations to update the database and create a table
+  5. Scaffold a CRUD interface to the database table
+  6. Create a cell to load the data and take care of loading/empty/failure/success states
+  7. Add the cell to the page
