@@ -6,17 +6,17 @@
 }
 
 .note-content-container {
-  // display: grid;
-  // grid-template-columns: 33% 1fr;
-
-  &>* {
-    grid-column: 2;
-  }
-
   #markdown-toc {
-    grid-column: 1;
     list-style: none;
-    padding-inline: .6em;
+    padding: 1em;
+    background: #333;
+    margin-right: 4em;
+    font-size: .77em;
+    border-radius: 6px;
+
+    @media screen and (min-width: 500px) {
+      float: left;
+    }
 
     &::before {
       content: "Contents";
@@ -25,7 +25,6 @@
       margin-left: -.6em;
       font-size: 1.2em;
       font-weight: bold;
-      background: #333;
     }
 
     &>li:first-child {
@@ -42,7 +41,7 @@
 
 
 .note {
-  max-width: 80ch;
+  max-width: 960px;
   margin-inline: auto;
 
   a {

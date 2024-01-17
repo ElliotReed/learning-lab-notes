@@ -8,6 +8,17 @@ categories: css
 - TOC
 {:toc}
 
+## Images
+
+Standard image properties:
+
+```css
+img {
+  display: block;
+  width: 100%;
+}
+```
+
 ## Inputs
 
 ### Label in Input
