@@ -40,12 +40,13 @@
   a {
     display: block;
     @include padding-box;
-    color: inherit;
+    color: $link-color;
 
     &:hover,
     :focus {
       color: $background-color;
-      background: $body-color;
+      background: $link-color;
+      font-weight: bold;
     }
   }
 }
