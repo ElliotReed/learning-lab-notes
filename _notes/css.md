@@ -8,6 +8,29 @@ categories: css
 - TOC
 {:toc}
 
+## Aria
+
+### aria-label
+
+The [aria-label] attribute only works on elements that have a [role], either implicit (like with button, a, and so on), or added used the [role] attribute (where appropriate).
+
+Also, as Adrian Roselli has pointed out, [aria-label] is often not translated by automatic translation software.
+
+As an alternative, you can use a .visually-hidden class to include content that’s exposed to screen readers but hidden visually in the HTML.
+
+```css
+.visually-hidden {
+ border: 0;
+ clip: rect(0 0 0 0);
+ height: 1px;
+ overflow: hidden;
+ padding: 0;
+ position: absolute;
+ white-space: nowrap;
+ width: 1px;
+}
+```
+
 ## Images
 
 Standard image properties:
