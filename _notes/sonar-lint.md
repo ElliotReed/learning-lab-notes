@@ -22,6 +22,17 @@ System.out.println(
     .toString() + " " + str); //NOSONAR lightweight logging
 ```
 
+## Disable Using @SuppressWarnings
+
+@SuppressWarnings
+
+```java
+@SuppressWarnings("java:S106")
+public void printStringToConsoleWithDate(String str) {
+    System.out.println(LocalDateTime.now().toString() + " " + str);
+}
+```
+
 ## Disable In Project
 
 Create a file *sonar-project.properties*.
