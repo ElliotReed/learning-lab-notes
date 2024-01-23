@@ -100,3 +100,23 @@ input:invalid:not(:placeholder-shown) {
 Judged by least number of characters. Learning from solutions is worthless.
 
 Good to try for matching on my own.
+
+## Shapes
+
+[The Shapes of CSS](https://css-tricks.com/the-shapes-of-css/)
+
+The `border-left` property is transparent, defines the left side.
+
+The `border-right` property is transparent, defines the right side.
+
+The top (or bottom) border is the actual triangle itself.
+
+```css
+#triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+```
