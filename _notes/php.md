@@ -1,17 +1,21 @@
 ---
 layout: note
 date: 2024-01-26
-title: "PHP"
+title: "php"
 categories: ["php"]
 ---
 
 - toc
 {:toc}
 
+[Go to the php documentation site.](https://www.php.net/)
+
 ## Development
 
 PHP comes with a built in development server, run it with:
 
 ```console
-php -S localhost:8000
+php -S <host>:<port> //e.g. localhost:8000
 ```
+
+Press `Ctrl-C` to quit.
