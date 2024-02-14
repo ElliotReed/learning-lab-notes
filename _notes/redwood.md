@@ -39,6 +39,14 @@ nvm use [version]
 - 18.19.0
 - 20.10.0
 
+Add this to package.json to simplify remembering versions
+
+```json
+  "scripts": {
+    "nvm": "nvm use 18.19.0"
+  },
+```  
+
 ## Create a Redwoodjs App
 
 Switch node version to 18 using nvm
