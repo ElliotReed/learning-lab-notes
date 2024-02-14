@@ -45,7 +45,7 @@ Add this to package.json to simplify remembering versions
   "scripts": {
     "nvm": "nvm use 18.19.0"
   },
-```  
+```
 
 ## Create a Redwoodjs App
 
@@ -126,6 +126,26 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+}
+```
+
+If using uuid or cuid change schema:
+
+```js
+model User {
+  id                  String       @id @default(cuid())
+  // rest of properties
+}
+```
+
+and in auth.ts change type of session.id check to 'string' (default is 'number')
+
+```js
+export const getCurrentUser = async (session: Decoded) => {
+  if (!session || typeof session.id !== 'string') {
+    throw new Error('Invalid session')
+  }
+  // rest of properties
 }
 ```
 
