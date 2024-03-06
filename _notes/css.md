@@ -127,7 +127,36 @@ The top (or bottom) border is the actual triangle itself.
 
 Code I wrote to make an image of an 40's style microphone. It's CSSBattle code, so will need modified to use.
 
-<style>*{background:#1e1d50;margin:20 55;*{position:relative;width:180;height:220;background:#eeecf6;border-radius:100%/80%;outline:20px solid#1e1d50;outline-offset:-40px;&:before,&:after{position:absolute;content:'';height:82;width:20;bottom: -40px;left:80px;background:#eeecf6}&:before{top: 80; left: 40;background:linear-gradient(#1e1d50 20px,transparent 20px,transparent 40px,#1e1d50 40px);height:60;width:50;
+```css
+* {
+  background: #1e1d50;
+  margin: 20 55;
+  * {
+    position: relative;
+    width: 180;
+    height: 220;
+    background: #eeecf6;
+    border-radius: 100%/80%;
+    outline: 20px solid #1e1d50;
+    outline-offset:- 40px;
+
+    &:before, &:after {
+      position: absolute;
+      content: '';
+      height: 82;
+      width: 20;
+      bottom: -40px;
+      left: 80px;
+      background: #eeecf6
+    }
+
+    &:before {
+      top: 80;
+      left: 40;
+      background: linear-gradient(#1e1d50 20px,transparent 20px,transparent 40px, #1e1d50 40px);
+      height: 60;
+      width: 50;
+```
 
 ## Typography
 
