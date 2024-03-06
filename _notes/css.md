@@ -160,6 +160,14 @@ Code I wrote to make an image of an 40's style microphone. It's CSSBattle code, 
 
 ## Typography
 
+### Responsive Font Size
+
+This give good font size on all devices, add to root element.
+
+```css
+font-size: calc(15px + .390625vw);
+```
+
 ### Letter-spacing
 
 The letter-spacing property in CSS specifies the amount of space to be added between characters in a text. It can be expressed in various units, including pixels, ems, or percentages.
