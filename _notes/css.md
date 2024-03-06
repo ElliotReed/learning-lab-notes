@@ -162,10 +162,12 @@ Code I wrote to make an image of an 40's style microphone. It's CSSBattle code, 
 
 ### Responsive Font Size
 
-This give good font size on all devices, add to root element.
+This give good font size on all devices.
 
 ```css
-font-size: calc(15px + .390625vw);
+:root {
+  font-size: calc(15px + .390625vw);
+}
 ```
 
 ### Letter-spacing
