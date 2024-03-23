@@ -94,6 +94,12 @@ Redwood uses two source folders:
 - **api** for the backend
 - **web** for the frontend
 
+To install additional packages use the workspace command in the cli.
+
+```console
+yarn workspace web add some-package
+```
+
 ## Full Stack (API and Web)
 
 ### Authentication
@@ -485,6 +491,10 @@ export const createCar = ({ input }: Car) => {
 ```shell
 yarn rw storybook
 ```
+
+### Issues
+
+- Problems running storybook without css: errors when trying to use sass (with Mantine)
 
 ## Testing
 
