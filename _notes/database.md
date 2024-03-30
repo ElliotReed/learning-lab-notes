@@ -50,3 +50,55 @@ With an ID length of 15 characters (pretty short and sweet), and a generation of
 - [Heroku](https://www.heroku.com/postgres)
 - [Digital Ocean](https://www.digitalocean.com/products/managed-databases)
 - [AWS](https://aws.amazon.com/rds/postgresql/)
+
+## Databases
+
+### postgress
+
+#### psql
+
+ To run psql:
+
+ ```console
+ psql -U <postgres user>
+ ```
+
+After logging in to psql, you'll see the postgres-# prompt, indicating that you're connected to the PostgreSQL server without being connected to any specific database.
+
+With the server prompt, create a database with SQL:
+
+```bash
+CREATE DATABASE database_name
+```
+
+To specify a database at this prompt, use the \c or \connect command followed by the name of the database you want to connect to. For example, to connect to a database named my_database, you would run:
+
+```bash
+\c my_database
+```
+
+You can specify other arguments in the initial connection statement
+
+ ```bash
+ psql -U username -d database_name -h hostname -p port
+ ```
+
+hostname and port are probably set to defaults, so:
+
+ ```bash
+ psql -U username -d database_name
+ ```
+
+The "-U" sets the cli to ask for the postgres user, otherwise it assumes the system user.
+
+In local development the postgres user has been set to "postgres"
+
+Then the cli asks for the password for user "postgres"
+
+In local development the password has been set to "postgres"
+
+##### Commands
+
+- ```\dt``` to list tables
+
+- ```\q``` to quit
