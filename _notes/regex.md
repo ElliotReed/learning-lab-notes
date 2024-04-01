@@ -9,3 +9,7 @@ categories: ["regex"]
 {:toc}
 
 [regexr.com](https://regexr.com/)
+
+## Common patterns
+
+- Email: ```/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/```
