@@ -309,3 +309,13 @@ This is what my sass file looks like to overide some basic styles:
   /* 2 */
 }
 ```
+
+## Typescript
+
+### SASS
+
+In  a file declarations.d.ts add:
+
+```ts
+declare module '*.scss';
+```
