@@ -10,7 +10,39 @@ categories: orm
 
 GraphQL's SDL syntax requires an extra `!` when a field is required. Remember: schema.prisma syntax requires an extra `?` character when a field is not required.
 
+## Installation
+
+Locally install the prisma cli:
+
+```console
+npm i -D prisma
+```
+
+Install the prisma client
+
+```console
+npm i @prisma/client
+```
+
+## Initialize
+
+```console
+npx prisma init
+```
+
+This also adds DATABASE_URL to the .env file.
+
+Create the database and then run:
+
+```console
+npx prisma generate
+```
+
+to generate the client inside the node_modules folder.
+
 ## schema.prisma
+
+Create the schema file and prisma folder:
 
 Example:
 
