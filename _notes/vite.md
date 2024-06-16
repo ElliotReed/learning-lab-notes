@@ -24,6 +24,24 @@ npm create vite@latest
 
 Vite's config file (vite.config.ts)
 
+To import kebab case into a styles object:
+
+```css
+.icon-button {
+  \\ properties
+}
+```
+
+and import as 'styles' in camelCase use this config:
+
+```js
+css: {
+  modules: {
+    localsConvention: 'camelCase',
+  }
+},
+```
+
 ```js
 export default defineConfig({
   plugins: [
