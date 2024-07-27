@@ -68,3 +68,13 @@ If using typescript add to tsconfig
   "@/*": ["src/*"],
 },
 ```
+
+## Development
+
+To run on the local network (for phone, device, etc.) add `--host` to the 'dev' script in package.json.
+
+```json
+"dev": vite --host
+```
+
+ that will expose the port 5173 on the network IPV4 address.
