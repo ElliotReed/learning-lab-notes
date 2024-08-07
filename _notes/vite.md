@@ -69,6 +69,24 @@ If using typescript add to tsconfig
 },
 ```
 
+Add multiple page endpoints:
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+    build: {
+        rollupOptions: {
+            input: {
+                main: './index.html',
+                about: './about.html' // add your new HTML page here
+            }
+        }
+    }
+});
+```
+
 ## Development
 
 To run on the local network (for phone, device, etc.) add `--host` to the 'dev' script in package.json.
