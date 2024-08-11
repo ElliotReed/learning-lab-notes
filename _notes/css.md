@@ -101,6 +101,10 @@ Judged by least number of characters. Learning from solutions is worthless.
 
 Good to try for matching on my own.
 
+## Resets
+
+[Normalize CSS](https://necolas.github.io/normalize.css/)
+
 ## Shapes
 
 ### Triangle
