@@ -88,12 +88,10 @@ Testing Permissions:
 To check a file's permissions, use:
 
 bash
-Copy code
 ls -l  {file}.sh
 Example output after running chmod +x:
 
 plaintext
-Copy code
 -rwxr-xr-x 1 username group 1234 Nov 17 12:34  {file}.sh
 
 ## Make a shell script
@@ -192,7 +190,107 @@ Backup Files Before Modifying: Add a backup step to ensure original files are no
 ```bash
 cp "$file" "$file.bak"
 ```
+
  ## Append Text
 
  ```bash
  echo "some text" >> .gitignore
+```
+
+ ## Syntax
+
+### Quotes
+
+#### Double Quotes (")
+
+Preserve the literal meaning of most characters inside them, except for $, \, `, and !.
+Allow variable substitution and command substitution.
+```bash
+echo "Hello, $name"  # Substitutes the value of $name
+```
+
+#### Single Quotes (')
+Preserve the literal meaning of all characters inside them. Nothing is interpreted.
+
+```bash
+echo 'Hello, $name'  # Outputs: Hello, $name
+```
+
+### Dollar Sign ($)
+Used to reference variables or perform command substitution.
+
+```bash
+echo $name  # Refers to a variable named `name`
+date=$(date)  # Command substitution: captures the output of `date`
+```
+
+### Parentheses
+
+#### Round Parentheses (())
+Used in arithmetic expressions or to define subshells.
+
+```bash
+result=$((3 + 5))  # Arithmetic: Adds 3 and 5
+(cd /tmp && ls)    # Subshell: Executes `cd` and `ls` without changing the parent shell
+```
+
+#### Square Brackets ([])
+Used in conditional tests.
+
+```bash
+if [ $x -gt 5 ]; then  # Tests if `x` is greater than 5
+```
+
+#### Double Square Brackets ([[]])
+Enhanced test syntax (```bash-specific), supports regex and logical operators.
+
+```bash
+if [[ $x =~ ^[0-9]+$ ]]; then  # Tests if `x` matches a numeric regex
+```
+
+### Braces ({})
+Used for grouping commands, variable expansion, or ranges.
+
+```bash
+echo ${name}_suffix     # Variable expansion with a suffix
+for i in {1..5}; do     # Range: Loops from 1 to 5
+```
+
+### Pound Sign (#)
+Marks the start of a comment in shell scripts.
+
+```bash
+# This is a comment
+```
+
+### Special Syntax in Your Script
+$((...))
+Arithmetic evaluation.
+
+```bash
+imageIndex=$(( (imageIndex + 1) % imageCount ))  # Cyclic increment
+```
+
+${}
+Expands the value of a variable and allows additional syntax (like default values).
+
+```bash
+${#images[@]}  # Returns the number of elements in the `images` array
+```
+
+$(...)
+Command substitution: Captures the output of a command.
+
+```bash
+date=$(date +"%Y-%m-%d")  # Runs `date` and assigns its output to the variable
+```
+
+#
+Inside ${#var}, gets the length of a variable or an array.
+
+```bash
+${#images[@]}  # Length of the `images` array
+> temp && mv temp "$file"
+```
+
+Redirects output to temp, and if successful (&&), renames temp to the original file.
