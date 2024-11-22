@@ -63,6 +63,33 @@ mkdir -p directory/subdirectory
 cp -rv "/home/user/Documents/"* "/home/user/Backup/"
 ```
 
+# Delete Directory
+
+To delete a directory in bash, you can use the rm command with the -r (recursive) flag if the directory is not empty. Here are the commands:
+
+Delete a non-empty directory:
+
+```bash
+rm -r /path/to/directory
+```
+
+Delete a directory and avoid confirmation prompts (use with caution):
+
+```bash
+rm -rf /path/to/directory
+```
+
+Delete an empty directory:
+
+```bash
+rmdir /path/to/directory
+```
+
+Notes:
+- rm -r deletes the directory and its contents (files and subdirectories).
+- rm -rf does the same but forces the operation without prompting for confirmation.
+- rmdir can only delete empty directories.
+
 ## Change Permissions
 
 Command: chmod +x {file}
