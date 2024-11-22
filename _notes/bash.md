@@ -56,6 +56,13 @@ Use the -p flage for nested directory creation:
 mkdir -p directory/subdirectory
 ```
 
+## Copy 
+
+```shell
+# cp -rv (recursive, verbose) /source/folder/* /destination/folder/
+cp -rv "/home/user/Documents/"* "/home/user/Backup/"
+```
+
 ## Change Permissions
 
 Command: chmod +x {file}
