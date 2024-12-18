@@ -12,5 +12,11 @@ Located at .learning-lab-notes
 Invoke with the script.
 
 ```shell
-npm run lln -- -n // or --note
+npm run lln
+```
+
+A note can be added with:
+
+```shell
+npm run add--note
 ```
