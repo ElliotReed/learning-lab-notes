@@ -18,5 +18,5 @@ npm run lln
 A note can be added with:
 
 ```shell
-npm run add--note
+npm run add-note
 ```

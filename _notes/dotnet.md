@@ -38,3 +38,24 @@ Tools for creating desktop applications with graphical user interfaces.
 ### Xamarin:
 
 Used for building mobile applications for Android and iOS.
+
+
+## Command Line Interface (CLI)
+
+Access the cli with 
+
+```console
+dotnet
+```
+
+Usage:
+
+```console
+ dotnet [sdk-options] [command] [command-options] [arguments]
+```
+
+Example: 
+
+```console
+ dotnet new console -o ./CsharpProjects/TestProject 
+```
