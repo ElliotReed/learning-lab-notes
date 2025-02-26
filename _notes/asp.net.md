@@ -12,6 +12,8 @@ categories: [".net"]
 
 ### Version 9 sdk
 
-Install Scalar package for in browser api tools (Swagger is deprecated, OpenApi  is used, Scalar maps to it).
+Use **ASP.NET Core Web API** template.
 
-https://localhost:7287/scalar/v1 will show the Scalar view (substitute the correct port)
+Install **Scalar** package for in browser api tools (Swagger is deprecated, OpenApi  is used, Scalar maps to it).
+
+https://localhost:7287/scalar/v1 will show the Scalar view (substitute the correct port).
