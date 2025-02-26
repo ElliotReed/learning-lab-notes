@@ -18,7 +18,6 @@ Executes .NET programs and manages memory, exception handling, and garbage colle
 
 A set of pre-built libraries for common functionalities like file I/O, database access, and XML parsing.
 
-
 ### Languages:
 
 Includes compilers and tools for C#, F#, and VB.NET.
@@ -59,3 +58,16 @@ Example:
 ```console
  dotnet new console -o ./CsharpProjects/TestProject 
 ```
+
+## Testing
+
+- xUnit (modern, popular)
+- nUnit
+- MSTest
+
+### Install
+ 
+    dotnet add package xunit
+    dotnet add package Microsoft.NET.Test.Sdk
+    dotnet add package xunit.runner.visualstudio
+
